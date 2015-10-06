@@ -96,7 +96,7 @@ public final class ControlUtil {
         return Client
                 .services(Maps.map(service, request.getServiceUrl()))
                 .credentials(request.getCredentials().getUsername(), request.getCredentials().getPassword())
-                .extraParameters(request.getExtraParams())
+                .extraParameters(request.getExtraParameters())
                 .build();
     }
 }

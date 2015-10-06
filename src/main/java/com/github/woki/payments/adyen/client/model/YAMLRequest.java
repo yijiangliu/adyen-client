@@ -9,7 +9,7 @@ public class YAMLRequest {
     private String type;
     private String serviceUrl;
     private YAMLCredentials credentials;
-    private Map<String, String> extraParams;
+    private Map<String, String> extraParameters;
     private YAMLPaymentRequest paymentRequest;
     private YAMLModificationRequest modificationRequest;
 
@@ -45,12 +45,12 @@ public class YAMLRequest {
         this.paymentRequest = paymentRequest;
     }
 
-    public Map<String, String> getExtraParams() {
-        return extraParams;
+    public Map<String, String> getExtraParameters() {
+        return extraParameters;
     }
 
-    public void setExtraParams(Map<String, String> extraParams) {
-        this.extraParams = extraParams;
+    public void setExtraParameters(Map<String, String> extraParams) {
+        this.extraParameters = extraParams;
     }
 
     public YAMLModificationRequest getModificationRequest() {
