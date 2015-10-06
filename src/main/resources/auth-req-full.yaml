@@ -1,5 +1,5 @@
 type: authorization # authorization|authorization3d|cancel|cancelOrRefund|refund|capture
-serviceUrl: http://localhost:8080/pal/servlet/Payment/v12/authorise
+serviceUrl: https://pal-test.adyen.com/pal/servlet/Payment/v12/authorise
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%
