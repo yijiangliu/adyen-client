@@ -1,0 +1,17 @@
+type: capture # authorization|authorization3d|cancel|cancelOrRefund|refund|capture
+serviceUrl: http://localhost:8080/pal/servlet/Payment/v12/capture
+credentials:
+  username: ws@Company.TestCompany
+  password: x30n%%
+modificationRequest:
+  merchantAccount: TestMerchant
+  reference: test-ref-0001
+  originalReference: test-original-ref
+  authorisationCode: test-auth-code
+  modificationAmount:
+      currencyCode: USD
+      value: 10000
+  additionalData:
+    additionalData.one: test-one
+    additionalData.two: test-two
+    additionalData.etc: test-etc
