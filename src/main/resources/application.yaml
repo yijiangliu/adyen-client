@@ -5,4 +5,4 @@ logging:
   level:
     root: WARN
     #org.springframework: ERROR
-    com.adyen.payment.aps.client.command: INFO
+    com.github.woki.payments.adyen.client: INFO
