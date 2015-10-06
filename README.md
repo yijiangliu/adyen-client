@@ -12,7 +12,7 @@ payment processing.
 
 ##Usage
 
-###Building it
+###Build it
 ```
 $ git clone https://github.com/woki/adyen-client.git
 $ cd adyen-client
