@@ -25,6 +25,7 @@ $ java -jar target/payments-adyen-client-${version}.jar -h
 usage: com.github.woki.payments.adyen.client.Main
  -f,--request-file <arg>   the request file path
  -h,--help                 print this message
+ -o,--orig-ref             replace modificationRequest.originalReference
 $
 $ java -jar target/payments-adyen-client-${version}.jar -f my-auth-request.yaml
 
@@ -86,7 +87,7 @@ paymentRequest: # authorisations
     signature: test-dcc-signature
     forexSource: test-forex-source
     forexType: test-forex-type
-    validTill: 2015/12/30 00:00:00-0200 # format: yyyy/MM/dd HH:mm:ssZ
+    validTill: 2015-12-30 00:00:00-0200 # format: yyyy-MM-dd HH:mm:ssZ
   deliveryAddress:
     countryCode: US
     city: test-city
@@ -94,7 +95,7 @@ paymentRequest: # authorisations
     street: test-street
     postalCode: test-postal-code
     number: 100100
-  deliveryDate: 2015/12/30 # format: yyyy/MM/dd
+  deliveryDate: 2015-12-30 # format: yyyy-MM-dd
   deviceFingerprint: test-device-fingerprint
   fraudOffset: 0
   mcc: 0
@@ -133,7 +134,7 @@ paymentRequest: # authorisations
     ip: 127.0.0.1
     reference: test-shopper-reference
     interaction: ecommerce
-    birth: 1986/12/30 # format: yyyy/MM/dd
+    birth: 1986-12-30 # format: yyyy-MM-dd
     ssn: 1234567890
     phone: +55-12-3322-8957
     locale: en_US
@@ -204,7 +205,7 @@ paymentRequest:
     ip: 127.0.0.1
     reference: test-shopper-reference
     interaction: ecommerce
-    birth: 1986/12/30 # format: yyyy/MM/dd
+    birth: 1986-12-30 # format: yyyy-MM-dd
     ssn: 1234567890
     phone: +55-12-3322-8957
     locale: en_US

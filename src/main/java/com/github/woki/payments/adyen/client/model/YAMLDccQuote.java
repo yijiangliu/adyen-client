@@ -11,7 +11,7 @@ import com.github.woki.payments.adyen.model.ForexQuoteBuilder;
  * Created by Willian Oki on 9/28/15.
  */
 public class YAMLDccQuote {
-    private static final String TIMESTAMP_FORMAT = "yyyy/MM/dd HH:mm:ssZ";
+    private static final String TIMESTAMP_FORMAT = "yyyy-MM-dd HH:mm:ssZ";
     private String account;
     private String accountType;
     private YAMLAmount baseAmount;

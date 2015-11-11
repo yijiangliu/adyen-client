@@ -27,6 +27,7 @@ public final class ControlUtil {
         Options options = new Options();
         options.addOption("f", "request-file", true, "the request file path");
         options.addOption("h", "help", false, "print this message");
+        options.addOption("o", "orig-ref", true, "replace modificationRequest.originalReference");
         return options;
     }
 

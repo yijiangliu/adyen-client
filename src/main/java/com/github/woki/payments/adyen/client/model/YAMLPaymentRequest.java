@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
  */
 public class YAMLPaymentRequest {
     private static final Logger LOG = LoggerFactory.getLogger(YAMLPaymentRequest.class);
-    private static final String DATE_FORMAT = "yyyy/MM/dd";
+    private static final String DATE_FORMAT = "yyyy-MM-dd";
     private String merchantAccount;
     private String reference;
     private YAMLAmount amount;
@@ -119,7 +119,7 @@ public class YAMLPaymentRequest {
                 formatter.parse(deliveryDate);
                 request.setDeliveryDate(deliveryDate);
             } catch (ParseException e) {
-                LOG.warn("delivery date {} discarded; not in format YYYY/MM/DD", shopper.getBirth());
+                LOG.warn("delivery date {} discarded; not in format YYYY-MM-DD", shopper.getBirth());
             }
         }
         if (shopper != null) {
@@ -150,7 +150,7 @@ public class YAMLPaymentRequest {
                     Date birth = formatter.parse(shopper.getBirth());
                     request.setDateOfBirth(birth);
                 } catch (ParseException e) {
-                    LOG.warn("shopper birth {} discarded; not in format YYYY/MM/DD", shopper.getBirth());
+                    LOG.warn("shopper birth {} discarded; not in format YYYY-MM-DD", shopper.getBirth());
                 }
             }
             request.setSocialSecurityNumber(shopper.getSsn());

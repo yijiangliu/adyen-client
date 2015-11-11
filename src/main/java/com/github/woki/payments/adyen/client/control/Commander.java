@@ -53,6 +53,12 @@ public class Commander implements CommandLineRunner {
             try {
                 Yaml yaml = new Yaml();
                 YAMLRequest request = yaml.loadAs(is, YAMLRequest.class);
+                if (!request.getType().startsWith("authorization") && line.hasOption("orig-ref")) {
+                    String originalReference = line.getOptionValue("orig-ref", "none");
+                    if (!originalReference.equals("none")) {
+                        request.getModificationRequest().setOriginalReference(originalReference);
+                    }
+                }
                 Command command = getCommand(request);
                 command.execute();
             } catch (Exception e) {
