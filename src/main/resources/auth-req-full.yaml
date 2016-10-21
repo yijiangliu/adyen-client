@@ -1,5 +1,6 @@
 type: authorization # authorization|authorization3d|cancel|cancelOrRefund|refund|capture
-serviceUrl: https://pal-test.adyen.com/pal/servlet/Payment/v12/authorise
+endpoint: https://pal-test.adyen.com
+proxyConfig: prxyusr:prxypass@prxysrvr:8888
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%

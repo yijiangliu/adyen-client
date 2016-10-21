@@ -25,7 +25,9 @@ $ java -jar target/payments-adyen-client-${version}.jar -h
 usage: com.github.woki.payments.adyen.client.Main
  -f,--request-file <arg>   the request file path
  -h,--help                 print this message
- -o,--orig-ref             replace modificationRequest.originalReference
+ -o,--orig-ref             replace request file's modificationRequest.originalReference
+ -v,--value                replace request file's modificationRequest.modificationAmount
+ -r,--merchref             replace request file's paymentRequest.reference / modificationRequest.reference
 $
 $ java -jar target/payments-adyen-client-${version}.jar -f my-auth-request.yaml
 
@@ -35,7 +37,8 @@ $ java -jar target/payments-adyen-client-${version}.jar -f my-auth-request.yaml
 For compelete description and usage of each field refer to Adyen's [API Playground](https://www.adyen.com/apidocs).
 ```yaml
 type: authorization # authorization|authorization3d|cancel|cancelOrRefund|refund|capture
-serviceUrl: https://pal-test.adyen.com/pal/servlet/Payment/v12/authorise
+endpoint: https://pal-test.adyen.com
+proxyConfig: pryusr:prxypass@prxysrvr:8888 # example, optional
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%
@@ -159,7 +162,8 @@ modificationRequest: # modifications (capture/cancel/refund/cancelOrRefund)
 ###Authorization
 ```yaml
 type: authorization
-serviceUrl: https://pal-test.adyen.com/pal/servlet/Payment/v12/authorise
+endpoint: https://pal-test.adyen.com
+proxyConfig: pryusr:prxypass@prxysrvr:8888 # example, optional
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%
@@ -215,7 +219,8 @@ paymentRequest:
 ###Capture
 ```yaml
 type: capture
-serviceUrl: https://pal-test.adyen.com/pal/servlet/Payment/v12/capture
+endpoint: https://pal-test.adyen.com
+proxyConfig: pryusr:prxypass@prxysrvr:8888 # example, optional
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%

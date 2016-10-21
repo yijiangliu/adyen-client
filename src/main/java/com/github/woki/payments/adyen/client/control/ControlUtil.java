@@ -1,19 +1,12 @@
 package com.github.woki.payments.adyen.client.control;
 
-import javax.validation.constraints.NotNull;
-import com.github.woki.payments.adyen.APService;
 import com.github.woki.payments.adyen.Client;
-import com.github.woki.payments.adyen.client.command.Authorization;
-import com.github.woki.payments.adyen.client.command.Authorization3d;
-import com.github.woki.payments.adyen.client.command.Cancel;
-import com.github.woki.payments.adyen.client.command.CancelOrRefund;
-import com.github.woki.payments.adyen.client.command.Capture;
-import com.github.woki.payments.adyen.client.command.Command;
-import com.github.woki.payments.adyen.client.command.Context;
-import com.github.woki.payments.adyen.client.command.Refund;
+import com.github.woki.payments.adyen.client.command.*;
 import com.github.woki.payments.adyen.client.model.YAMLRequest;
 import org.apache.commons.cli.Options;
-import org.boon.Maps;
+
+import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 /**
  * Created by Willian Oki on 9/24/15.
@@ -27,8 +20,21 @@ public final class ControlUtil {
         Options options = new Options();
         options.addOption("f", "request-file", true, "the request file path");
         options.addOption("h", "help", false, "print this message");
-        options.addOption("o", "orig-ref", true, "replace modificationRequest.originalReference");
+        options.addOption("a", "auto-merchref", true, "auto generate a merchant reference; available reference types: timestamp, uuid");
+        options.addOption("r", "merchref", true, "replace request file's paymentRequest.reference / modificationRequest.reference");
+        options.addOption("o", "orig-ref", true, "replace request file's modificationRequest.originalReference");
+        options.addOption("v", "value", true, "replace request file's modificationRequest.modificationAmount");
         return options;
+    }
+
+    public static String makeMerchantReference(String type) {
+        switch (type) {
+            case "uuid":
+                return UUID.randomUUID().toString();
+            case "timestamp":
+            default:
+                return String.valueOf(System.currentTimeMillis());
+        }
     }
 
     public static Command getCommand(@NotNull YAMLRequest request) {
@@ -71,32 +77,10 @@ public final class ControlUtil {
     }
 
     private static Client getClient(YAMLRequest request) {
-        APService service;
-        switch (request.getType()) {
-            case "authorization":
-                service = APService.AUTHORISATION;
-                break;
-            case "authorization3d":
-                service = APService.AUTHORISATION_3D;
-                break;
-            case "cancel":
-                service = APService.CANCEL;
-                break;
-            case "cancelOrRefund":
-                service = APService.CANCEL_OR_REFUND;
-                break;
-            case "refund":
-                service = APService.REFUND;
-                break;
-            case "capture":
-                service = APService.CAPTURE;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid request type: " + request.getType());
-        }
         return Client
-                .services(Maps.map(service, request.getServiceUrl()))
+                .endpoint(request.getEndpoint())
                 .credentials(request.getCredentials().getUsername(), request.getCredentials().getPassword())
+                .proxyConfig(request.getProxyConfig())
                 .extraParameters(request.getExtraParameters())
                 .build();
     }

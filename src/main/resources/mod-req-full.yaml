@@ -1,5 +1,5 @@
 type: capture # authorization|authorization3d|cancel|cancelOrRefund|refund|capture
-serviceUrl: https://pal-test.adyen.com/pal/servlet/Payment/v12/capture
+endpoint: https://pal-test.adyen.com
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%

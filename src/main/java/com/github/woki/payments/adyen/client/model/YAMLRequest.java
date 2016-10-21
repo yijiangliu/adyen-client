@@ -7,7 +7,8 @@ import java.util.Map;
  */
 public class YAMLRequest {
     private String type;
-    private String serviceUrl;
+    private String endpoint;
+    private String proxyConfig;
     private YAMLCredentials credentials;
     private Map<String, String> extraParameters;
     private YAMLPaymentRequest paymentRequest;
@@ -21,12 +22,20 @@ public class YAMLRequest {
         this.type = type;
     }
 
-    public String getServiceUrl() {
-        return serviceUrl;
+    public String getEndpoint() {
+        return endpoint;
     }
 
-    public void setServiceUrl(String serviceUrl) {
-        this.serviceUrl = serviceUrl;
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    public String getProxyConfig() {
+        return proxyConfig;
+    }
+
+    public void setProxyConfig(String proxyConfig) {
+        this.proxyConfig = proxyConfig;
     }
 
     public YAMLCredentials getCredentials() {
