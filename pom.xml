@@ -11,15 +11,15 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.2.6.RELEASE</version>
+    <version>1.4.1.RELEASE</version>
   </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <snakeyaml.version>1.16</snakeyaml.version>
-    <payments-adyen-api.version>1.2.0</payments-adyen-api.version>
+    <snakeyaml.version>1.17</snakeyaml.version>
+    <payments-adyen-api.version>1.2.1</payments-adyen-api.version>
     <commons-cli.version>1.3.1</commons-cli.version>
   </properties>
 
@@ -53,6 +53,11 @@
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
       <version>4.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>${snakeyaml.version}</version>
     </dependency>
   </dependencies>
 
