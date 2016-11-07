@@ -80,6 +80,7 @@ public final class ControlUtil {
         return Client
                 .endpoint(request.getEndpoint())
                 .credentials(request.getCredentials().getUsername(), request.getCredentials().getPassword())
+                .encryptionKey(request.getEncryptionKey())
                 .proxyConfig(request.getProxyConfig())
                 .extraParameters(request.getExtraParameters())
                 .build();

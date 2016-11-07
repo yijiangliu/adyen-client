@@ -10,6 +10,7 @@ public class YAMLRequest {
     private String endpoint;
     private String proxyConfig;
     private YAMLCredentials credentials;
+    private String encryptionKey;
     private Map<String, String> extraParameters;
     private YAMLPaymentRequest paymentRequest;
     private YAMLModificationRequest modificationRequest;
@@ -68,5 +69,13 @@ public class YAMLRequest {
 
     public void setModificationRequest(YAMLModificationRequest modificationRequest) {
         this.modificationRequest = modificationRequest;
+    }
+
+    public String getEncryptionKey() {
+        return encryptionKey;
+    }
+
+    public void setEncryptionKey(String encryptionKey) {
+        this.encryptionKey = encryptionKey;
     }
 }
