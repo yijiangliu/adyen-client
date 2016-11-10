@@ -42,6 +42,7 @@ proxyConfig: pryusr:prxypass@prxysrvr:8888 # example, optional
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%
+encryptionKey: 10002|ABCDEF012364... # CSE encryption key, optional
 paymentRequest: # authorisations
   merchantAccount: TestMerchant
   reference: test-ref
@@ -167,6 +168,7 @@ proxyConfig: pryusr:prxypass@prxysrvr:8888 # example, optional
 credentials:
   username: ws@Company.TestCompany
   password: x30n%%
+encryptionKey: 10002|ABCDEF012364... # CSE encryption key, optional
 paymentRequest:
   merchantAccount: TestMerchant
   reference: test-ref
