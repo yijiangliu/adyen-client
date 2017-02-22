@@ -1,5 +1,6 @@
 package com.github.woki.payments.adyen.client.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,7 +12,7 @@ public class YAMLRequest {
     private String proxyConfig;
     private YAMLCredentials credentials;
     private String encryptionKey;
-    private Map<String, String> extraParameters;
+    private Map<String, String> extraParameters = new HashMap<>();
     private YAMLPaymentRequest paymentRequest;
     private YAMLModificationRequest modificationRequest;
 

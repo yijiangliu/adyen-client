@@ -60,6 +60,8 @@ paymentRequest: # authorisations
     countryCode: US
     iban: test-iban
     owner: test-owner
+    bankCity: test-city # new from v18
+    taxId: test-tax-id # new from v18
   billingAddress:
     countryCode: US
     city: test-city
@@ -121,12 +123,22 @@ paymentRequest: # authorisations
   md: test-md
   paResponse: test-pa-response
   card:
+    billingAddress: # new from v18
+      countryCode: US
+      city: test-city
+      state: MA
+      street: test-street
+      postalCode: test-postal-code
+      number: 100100
     number: 4111111111111111
     cvc: 123
     expiryMonth: 12
     expiryYear: 2016
     holder: Johnny Tester
-  additionalData:
+    issueNumber: 23 # new from v18
+    startMonth: 9 # new from v18
+    startYear: 2017 # new from v18
+  additionalData: # just a map
     additionalData.one: test-one
     additionalData.two: test-two
     additionalData.etc: test-etc
@@ -143,6 +155,9 @@ paymentRequest: # authorisations
     phone: +55-12-3322-8957
     locale: en_US
     statement: test-statement
+  metadata: # new from v18; just a map
+    metadata.one: test-one
+    metadata.two: test-two
     
 modificationRequest: # modifications (capture/cancel/refund/cancelOrRefund)
   merchantAccount: PayULatamMerchant

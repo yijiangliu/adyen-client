@@ -14,16 +14,20 @@ public class YAMLBankAccount {
     private String countryCode;
     private String iban;
     private String ownerName;
+    private String bankCity;
+    private String taxId;
 
     public BankAccount toBankAccount() {
         return BankAccountBuilder
                 .accountNumber(number)
                 .locationId(bankLocationId)
                 .bankName(bankName)
+                .bankCity(bankCity)
                 .bic(bic)
                 .countryCode(countryCode)
                 .iban(iban)
                 .owner(ownerName)
+                .taxId(taxId)
                 .build();
     }
 
@@ -81,5 +85,21 @@ public class YAMLBankAccount {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    public String getBankCity() {
+        return bankCity;
+    }
+
+    public void setBankCity(String bankCity) {
+        this.bankCity = bankCity;
+    }
+
+    public String getTaxId() {
+        return taxId;
+    }
+
+    public void setTaxId(String taxId) {
+        this.taxId = taxId;
     }
 }

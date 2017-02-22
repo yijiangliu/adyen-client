@@ -1,11 +1,5 @@
 package com.github.woki.payments.adyen.client.model;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import com.github.woki.payments.adyen.model.Installments;
 import com.github.woki.payments.adyen.model.NameBuilder;
 import com.github.woki.payments.adyen.model.PaymentRequest;
@@ -13,6 +7,13 @@ import com.github.woki.payments.adyen.model.ShopperInteraction;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Willian Oki on 9/23/15.
@@ -47,6 +48,7 @@ public class YAMLPaymentRequest {
     private String selectedRecurringDetailReference;
     private YAMLMpiData mpiData;
     private YAMLRecurring recurring;
+    private Map<String, String> metadata = new HashMap<>();
 
     public PaymentRequest toPaymentRequest() {
         PaymentRequest request = new PaymentRequest();
@@ -103,6 +105,9 @@ public class YAMLPaymentRequest {
         }
         if (!additionalData.isEmpty()) {
             request.getAdditionalData().putAll(additionalData);
+        }
+        if (!metadata.isEmpty()) {
+            request.getMetadata().putAll(metadata);
         }
         if (amount != null) {
             request.setAmount(amount.toAmount());
@@ -378,5 +383,13 @@ public class YAMLPaymentRequest {
 
     public void setRecurring(YAMLRecurring recurring) {
         this.recurring = recurring;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 }

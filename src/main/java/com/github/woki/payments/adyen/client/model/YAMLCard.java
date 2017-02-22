@@ -12,9 +12,26 @@ public class YAMLCard {
     private String holder;
     private int expiryMonth;
     private int expiryYear;
+    private YAMLAddress billingAddress;
+    private int issueNumber;
+    private int startMonth;
+    private int startYear;
 
     public Card toCard() {
-        return CardBuilder.number(number).cvc(String.valueOf(cvc)).expiry(expiryYear, expiryMonth).holder(holder).build();
+        Card card = CardBuilder.number(number).cvc(String.valueOf(cvc)).expiry(expiryYear, expiryMonth).holder(holder).build();
+        if (billingAddress != null) {
+            card.setBillingAddress(billingAddress.toAddress());
+        }
+        if (issueNumber > 0) {
+            card.setIssueNumber(issueNumber);
+        }
+        if (startMonth > 0) {
+            card.setStartMonth(startMonth);
+        }
+        if (startYear > 0) {
+            card.setStartYear(startYear);
+        }
+        return card;
     }
 
     public int getExpiryMonth() {
@@ -55,5 +72,37 @@ public class YAMLCard {
 
     public void setHolder(String holder) {
         this.holder = holder;
+    }
+
+    public YAMLAddress getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(YAMLAddress billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public int getIssueNumber() {
+        return issueNumber;
+    }
+
+    public void setIssueNumber(int issueNumber) {
+        this.issueNumber = issueNumber;
+    }
+
+    public int getStartMonth() {
+        return startMonth;
+    }
+
+    public void setStartMonth(int startMonth) {
+        this.startMonth = startMonth;
+    }
+
+    public int getStartYear() {
+        return startYear;
+    }
+
+    public void setStartYear(int startYear) {
+        this.startYear = startYear;
     }
 }

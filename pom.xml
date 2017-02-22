@@ -6,7 +6,7 @@
 
   <groupId>com.github.woki</groupId>
   <artifactId>payments-adyen-client</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.2</version>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
