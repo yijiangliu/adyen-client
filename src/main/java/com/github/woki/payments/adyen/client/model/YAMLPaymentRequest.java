@@ -36,7 +36,7 @@ public class YAMLPaymentRequest {
     private String selectedBrand;
     private String orderReference;
     private String merchantOrderReference;
-    private Integer fraudOffset;
+    private Long fraudOffset;
     private Integer mcc;
     private String md;
     private String paResponse;
@@ -289,11 +289,11 @@ public class YAMLPaymentRequest {
         this.merchantOrderReference = merchantOrderReference;
     }
 
-    public Integer getFraudOffset() {
+    public Long getFraudOffset() {
         return fraudOffset;
     }
 
-    public void setFraudOffset(Integer fraudOffset) {
+    public void setFraudOffset(Long fraudOffset) {
         this.fraudOffset = fraudOffset;
     }
 
